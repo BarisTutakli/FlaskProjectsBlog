@@ -1,0 +1,58 @@
+{% extends "Layout.html" %}
+
+{% block body %}
+
+    <div class="container">
+
+      <div class="row">
+          {% for info in fInfos %}
+            <div class="card " style="width: 18rem; margin-left: auto">
+          <img class="card-img-top" src="{{ info.avatar }}" alt="avatar">
+          <div class="card-body">
+            <h6 class="card-title">-{{ info.rName }}</h6>
+            <p class="card-text">Followers: {{ info.followers }}</p>
+              <hr><p>Following: {{ info.following }}</p>
+              <p>Actual public repos: {{ info.public_repos }}</p>
+              <h4>{{ info.rName }}</h4>
+              <p>{{ info.readme[0:150]|safe }}...<a href="/detail/{{ info.login }}"><strong>More</strong></a></p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a href="https://github.com/{{ info.login }}?tab=repositories " target="_blank">Go to repos</a></li>
+            <li class="list-group-item"><a href="{{ info.blog }}" target="_blank">Go to blog</a></li>
+            <li class="list-group-item">Created at: {{ info.created_at }}</li>
+          </ul>
+
+                </div>
+            {% endfor %}
+                </div>
+
+      </div>
+
+
+
+
+{% endblock body %}
+
+
+
+
+<!--
+<div class="card-columns">
+
+
+
+            <div class="card border-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header"></div>
+  <div class="card-body text-dark">
+    <h6 class="card-title"></h6>
+    <p class="card-text"></p>
+    <a href="/article/"><button type="submit" class="btn btn-info">More</button></a>
+  </div>
+
+</div>
+
+
+
+
+
+</div>-->

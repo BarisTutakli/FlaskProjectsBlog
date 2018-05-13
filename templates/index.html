@@ -1,0 +1,33 @@
+{% extends "Layout.html" %}
+
+{% block title %}
+    anasayfa
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+    <h3>
+Flask project development environment</h3>
+    <p>
+Join us and discover the Flask world</p>
+    </div>
+    <hr>
+    {% if articles %}
+        <form action="/search" method="post" >
+                <input type="text" name="keyword" class="input-sm" maxlength="64" placeholder="Search">
+                <button type="submit" class="btn btn-info btn-sm">Search</button>
+            </form>
+        <hr>
+
+        <ul class="list-group">
+        {% for article in articles %}
+            <li class="list-group-item"><a href="/article/{{ article.id }}">{{ article.title }}</a></li>
+        {% endfor %}
+</ul>
+
+
+    {% else %}
+
+    {% endif %}
+
+{% endblock %}

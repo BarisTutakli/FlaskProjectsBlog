@@ -1,0 +1,23 @@
+{% extends "Layout.html" %}
+
+
+{% block body %}
+
+    {% if fInfos %}
+
+            <h4>{{ fInfos.rName }}</h4>
+        <hr>
+        <p>{{ fInfos.readme|safe }}</p>
+
+
+
+
+    {% endif %}
+
+
+
+
+
+
+
+{% endblock %}
